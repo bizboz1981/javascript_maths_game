@@ -99,6 +99,15 @@ body {
     outline: none;
 }
 
+.btn--big::after{
+    content: attr(data-type);
+    font-size: 1rem;
+    position: relative;
+    text-align: center;
+    left: -0.25em;
+    color: #445361;
+}
+
 .btn--big {
     padding-top: 10px;
     border-radius: 50%;
