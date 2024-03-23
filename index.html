@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway%7CRighteous" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Document</title>
@@ -13,13 +12,37 @@
         <img src="assets/images/logo.png" alt="logo" class="logo">Love Maths
     </h1>
 
-<div class="game-area"></div>
+<div class="game-area">
+    <div class="controls-area">
+        <button class="btn btn--big btn--green">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+        <button class="btn btn--big btn--blue">
+            <i class="fa-solid fa-minus"></i>
+        </button>
+        <button class="btn btn--big btn--orange">
+            <i class="fa-solid fa-times"></i>
+        </button>
+        <button class="btn btn--big btn--red">
+            <i class="fa-solid fa-divide"></i>
+        </button>
+    </div>
+    <div class="question-area">
+        <span id="operand1"></span>
+        <span id="operator"></span>
+        <span id="operand2"></span>
+        <span>=</span>
+        <p class="answer-message">Enter Answer:</p>
+        <input type="text" id="answer-box" type="number">
+    </div>
+    <button class="btn btn-gray">Submit Answer</button>
+</div>
 
 <div class="score-area">
     <p class="scores">Correct Answers <span id="score">0</span></p>
     <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
 </div>
-
+    <script src="https://kit.fontawesome.com/69f3a11e1c.js" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
