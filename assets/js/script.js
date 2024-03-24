@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     for (let button of buttons) {
         button.addEventListener('click', function() {
             if (this.getAttribute('data-type') === 'submit'){
-                alert('you clicked submit');
+                checkAnswer();
             } else {
                 let gameType = this.getAttribute('data-type');
                 runGame(gameType);
@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
  * and after the user's answer has been processed
  */
 function runGame(gameType) {
+    document.getElementById('answer-box').value = '';
     let num1 = Math.floor(Math.random() * 25 + 1);
     let num2 = Math.floor(Math.random() * 25 + 1);
 
@@ -33,12 +34,37 @@ function runGame(gameType) {
     }
 }
 
+/**
+ * Checks the user's answer against the first element in the array returned by calulateCorrectAnswer()
+ */
 function checkAnswer() {
-
+    let userAnswer = parseInt(document.getElementById('answer-box').value);
+    let calculatedAnswer = calculateCorrectAnswer();
+    let isCorrect = userAnswer === calculatedAnswer[0];
+    if (isCorrect) {
+        alert('Hey! You got it right 😀');
+    } else {
+        alert(`Awwww... you answered ${userAnswer}, but the correct answer is ${calculatedAnswer[0]}`);
+    }
+    runGame(calculatedAnswer[1]);
+    
 }
 
+/**
+ * Gets the operands and the operator from the DOM and returns the correct answer
+ * It gets them from the DOM, rather than directly from the script, to avoid creating global variables
+ */
 function calculateCorrectAnswer() {
+    let operand1 = parseInt(document.getElementById('operand1').innerText); // parseInt explicitly casts string from DOM to int
+    let operand2 = parseInt(document.getElementById('operand2').innerText);
+    let operator = document.getElementById('operator').innerText;
 
+    if (operator === '+') {
+        return [operand1 + operand2, 'addition'];
+    } else {
+        alert(`unimplemented operator ${operator}`);
+        throw `unimplemented operator ${operator}. Aborting!`;
+    }
 }
 
 function incrementScore() {
