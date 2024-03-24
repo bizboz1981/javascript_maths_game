@@ -29,7 +29,7 @@
     "editor.formatOnSave": false
   },
   "prettier.htmlWhitespaceSensitivity": "CSS",
-  "liveServer.settings.port": 5503,
+  "liveServer.settings.port": 5504,
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
